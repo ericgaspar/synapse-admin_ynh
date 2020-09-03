@@ -1,6 +1,6 @@
-SOURCE_URL=https://github.com/codimd/server/archive/1.6.0.tar.gz
-SOURCE_SUM=3639eaf70a37ee0513c75259c70b3d0c2c10116e9b2989dc9c571f98017120bd
+SOURCE_URL=https://github.com/Awesome-Technologies/synapse-admin/archive/0.5.0.tar.gz
+SOURCE_SUM=7d76436be6e3f45c72ba6568cfc0611eeb75ac6dd36432169ac7e917fae9cc03
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
-SOURCE_FILENAME=codimd.tar.gz
+SOURCE_FILENAME=

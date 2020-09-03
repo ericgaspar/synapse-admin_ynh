@@ -1,34 +1,32 @@
-# CodiMD pour YunoHost
+# Synapse Admin pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
-[![Installer CodiMD avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=codimd)
+[![Niveau d'intégration](https://dash.yunohost.org/integration/synapse-admin.svg)](https://dash.yunohost.org/appci/app/synapse-admin) ![](https://ci-apps.yunohost.org/ci/badges/synapse-admin.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/synapse-admin.maintain.svg)  
+[![Installer Synapse Admin avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=synapse-admin)
 
 *[Read this readme in english.](./README.md)* 
 
-> *Ce package vous permet d'installer CodiMD rapidement et simplement sur un serveur YunoHost.  
+> *Ce package vous permet d'installer Synapse Admin rapidement et simplement sur un serveur YunoHost.  
 Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
 
 ## Vue d'ensemble
-CodiMD est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
 
-**Version incluse :** 1.6.0
+
+**Version incluse :** 0.5.0
 
 ## Captures d'écran
 
-![](https://demo.codimd.org/screenshot.png)
+![](https://raw.githubusercontent.com/Awesome-Technologies/synapse-admin/master/screenshots.jpg)
 
 ## Démo
 
-* [Démo officielle](https://demo.codimd.org/)
+* [Démo officielle]()
 
 ## Configuration
 
-Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
-
 ## Documentation
 
- * Documentation officielle : https://github.com/codimd/server/tree/master/docs/
- * Documentation YunoHost : https://yunohost.org/#/app_codimd_fr
+ * Documentation officielle : 
+ * Documentation YunoHost : https://yunohost.org/#/app_synapse-admin_fr
 
 ## Caractéristiques spécifiques YunoHost
 
@@ -39,25 +37,24 @@ Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.js
 
 #### Architectures supportées
 
-* x86-64b - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/codimd/)
+* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/synapse-admin%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/synapse-admin/)
+* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/synapse-admin%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/synapse-admin/)
 
 ## Liens
 
- * Signaler un bug : https://github.com/YunoHost-Apps/codimd_ynh/issues
- * Dépôt de l'application principale : https://github.com/codimd/server/
+ * Signaler un bug : https://github.com/YunoHost-Apps/synapse-admin_ynh/issues
+ * Dépôt de l'application principale : https://github.com/Awesome-Technologies/synapse-admin
  * Site web YunoHost : https://yunohost.org/
 
 ---
 
-Informations pour les développeurs
-----------------
+## Informations pour les développeurs
 
-Merci de faire vos pull request sur la [branche testing](https://github.com/YunoHost-Apps/codimd_ynh/tree/testing).
+Merci de faire vos pull request sur la [branche testing](https://github.com/YunoHost-Apps/synapse-admin_ynh/tree/testing).
 
 Pour essayer la branche testing, procédez comme suit.
 ```
-sudo yunohost app install https://github.com/YunoHost-Apps/codimd_ynh/tree/testing --debug
+sudo yunohost app install https://github.com/YunoHost-Apps/synapse-admin_ynh/tree/testing --debug
 ou
-sudo yunohost app upgrade codimd -u https://github.com/YunoHost-Apps/codimd_ynh/tree/testing --debug
+sudo yunohost app upgrade synapse-admin -u https://github.com/YunoHost-Apps/synapse-admin_ynh/tree/testing --debug
 ```

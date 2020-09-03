@@ -1,7 +1,6 @@
 [Unit]
-Description=CodiMD: collaborative Markdown notes
-Documentation=https://github.com/codimd/server
-After=network.target postgresql.service
+Description=Synapse admin
+After=network.target
 
 [Service]
 Type=simple

@@ -7,8 +7,8 @@ about: Create a report to help us debug, it would be nice to fill the template a
 **How to post a meaningful bug report**
 1. *Read this whole template first.*
 2. *Determine if you are on the right place:*
-   - *If you were performing an action on the app from the webadmin or the CLI (install, update, backup, restore, change url...), you are on the right place!*
-   - *Otherwise, the issue may be due to CodiMD itself. Refer to its documentation or repository for help.*
+   - *If you were performing an action on the app from the webadmin or the CLI (install, update, backup, restore, change_url...), you are on the right place!*
+   - *Otherwise, the issue may be due to Synapse Admin itself. Refer to its documentation or repository for help.*
    - *If you have a doubt, post here, we will figure it out together.*
 3. *Delete the italic comments as you write over them below, and remove this guide.*
 --- 
@@ -23,19 +23,19 @@ about: Create a report to help us debug, it would be nice to fill the template a
 - Are you in a special context or did you perform some particular tweaking on your YunoHost instance ?: *no / yes*
   - If yes, please explain:
 - Using, or trying to install package version/branch:
-- If upgrading, current package version: *can be found in the admin, or with `yunohost app info codimd`*
+- If upgrading, current package version: *can be found in the admin, or with `yunohost app info synapse-admin`*
 
 **To Reproduce**
 *Steps to reproduce the behavior.*
 - *If you performed a command from the CLI, the command itself is enough. For example:*
     ```sh
-    sudo yunohost app install codimd
+    sudo yunohost app install synapse-admin
     ```
 - *If you used the webadmin, please perform the equivalent command from the CLI first.*
 - *If the error occurs in your browser, explain what you did:*
    1. *Go to '...'*
-   2. *Click on '....'*
-   3. *Scroll down to '....'*
+   2. *Click on '...'*
+   3. *Scroll down to '...'*
    4. *See error*
 
 **Expected behavior**

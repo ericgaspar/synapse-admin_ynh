@@ -22,10 +22,6 @@ is_public=$(ynh_app_setting_get --app=$app --key=is_public)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 port=$(ynh_app_setting_get --app=$app --key=port)
 
-db_name=$(ynh_app_setting_get --app=$app --key=db_name)
-db_user=$db_name
-db_pwd=$(ynh_app_setting_get --app=$app --key=db_pwd)
-
 #=================================================
 # CHECK VERSION
 #=================================================
@@ -64,25 +60,12 @@ if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	ynh_script_progression --message="Upgrading source files..." --weight=160
 
-	# Create a temporary directory
-	tmpdir="$(mktemp -d)"
-	
-	# Backup the config file in the temp dir
-	cp -a "$final_path/config.json" "$tmpdir/config.json"
-	cp -a "$final_path/.sequelizerc" "$tmpdir/.sequelizerc"
-	
 	# Remove the app directory securely
 	ynh_secure_remove --file=$final_path
 
 	# Download, check integrity, uncompress and patch the source from app.src
 	ynh_setup_source --dest_dir=$final_path
 
-	#Copy the admin saved settings from tmp directory to final path	
-	cp -a "$tmpdir/config.json" "$final_path/config.json" 
-	cp -a "$tmpdir/.sequelizerc" "$final_path/.sequelizerc"
-
-	# Remove the tmp directory securely
-	ynh_secure_remove --file="$tmpdir"
 fi
 
 #=================================================
@@ -98,7 +81,7 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Upgrading dependencies..." --weight=18
 
-ynh_install_app_dependencies $pkg_dependencies
+#ynh_install_app_dependencies $pkg_dependencies
 
 # Install Nodejs
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
@@ -126,31 +109,29 @@ then
 	pushd "$final_path" || ynh_die
 
 		ynh_use_nodejs
-		bin/setup
-		ynh_exec_warn_less yarn run build
-
+		ynh_exec_warn_less yarn install
 	popd || ynh_die
 fi
 
 #=================================================
 # MODIFY A CONFIG FILE
 #=================================================
-ynh_script_progression --message="Modifying a config file..." --weight=2
+# ynh_script_progression --message="Modifying a config file..." --weight=2
 
-ynh_backup_if_checksum_is_different --file="$final_path/config.json"
+# ynh_backup_if_checksum_is_different --file="$final_path/config.json"
 
-# Main config File
-ynh_replace_string --match_string="__PORT__"    --replace_string="$port"    --target_file="../conf/config.json.example"
-ynh_replace_string --match_string="__DOMAIN__"  --replace_string="$domain"  --target_file="../conf/config.json.example"
-ynh_replace_string --match_string="__DB_USER__" --replace_string="$db_user" --target_file="../conf/config.json.example"
-ynh_replace_string --match_string="__DB_NAME__" --replace_string="$db_name" --target_file="../conf/config.json.example"
-ynh_replace_string --match_string="__DB_PASS__" --replace_string="$db_pwd"  --target_file="../conf/config.json.example"
-ynh_replace_string --match_string="__APP__"     --replace_string="$app"     --target_file="../conf/config.json.example"
+# # Main config File
+# ynh_replace_string --match_string="__PORT__"    --replace_string="$port"    --target_file="../conf/config.json.example"
+# ynh_replace_string --match_string="__DOMAIN__"  --replace_string="$domain"  --target_file="../conf/config.json.example"
+# ynh_replace_string --match_string="__DB_USER__" --replace_string="$db_user" --target_file="../conf/config.json.example"
+# ynh_replace_string --match_string="__DB_NAME__" --replace_string="$db_name" --target_file="../conf/config.json.example"
+# ynh_replace_string --match_string="__DB_PASS__" --replace_string="$db_pwd"  --target_file="../conf/config.json.example"
+# ynh_replace_string --match_string="__APP__"     --replace_string="$app"     --target_file="../conf/config.json.example"
 
-cp ../conf/config.json.example "$final_path/config.json"
+# cp ../conf/config.json.example "$final_path/config.json"
 
-# Recalculate and store the checksum of the file for the next upgrade.
-ynh_store_file_checksum --file="$final_path/config.json"
+# # Recalculate and store the checksum of the file for the next upgrade.
+# ynh_store_file_checksum --file="$final_path/config.json"
 
 #=================================================
 # SETUP SYSTEMD
@@ -178,7 +159,7 @@ chown -R $app:$app $final_path
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..."
 
-yunohost service add $app --description "Collaborative Markdown notes" --log="/var/log/$app/$app.log"
+yunohost service add $app --description "UI admin for Synapse" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
