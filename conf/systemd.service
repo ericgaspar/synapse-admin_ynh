@@ -1,5 +1,5 @@
 [Unit]
-Description=Synapse admin
+Description=Synapse Admin
 After=network.target
 
 [Service]
@@ -11,8 +11,6 @@ Environment="PATH=__ENV_PATH__"
 Environment="NODE_ENV=production"
 ExecStart=__YNH_NPM__ start
 Restart=always
-PrivateTmp=true
-PrivateDevices=true
 
 [Install]
 WantedBy=multi-user.target
