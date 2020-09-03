@@ -100,7 +100,7 @@ ynh_system_user_create --username=$app --home_dir=$final_path
 #==============================================
 # INSTALL CODIMD
 #==============================================
-ynh_script_progression --message="Building $app... (this will take some time and resources!)" --weight=240
+ynh_script_progression --message="Building $app... (this will take some time and resources!)" --weight=40
 
 pushd "$final_path" || ynh_die
 	ynh_use_nodejs
@@ -157,7 +157,7 @@ yunohost service add $app --description "UI admin for Synapse" --log="/var/log/$
 ynh_script_progression --message="Starting a systemd service..." --weight=2
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" --line_match="HTTP Server listening"
+ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" #--line_match="HTTP Server listening"
 
 #=================================================
 # SETUP SSOWAT
