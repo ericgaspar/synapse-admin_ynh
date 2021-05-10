@@ -25,7 +25,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/inst
 ## Documentation
 
  * Official documentation: 
- * YunoHost documentation: https://yunohost.org/#/app_synapse-admin
+ * YunoHost documentation: https://yunohost.org/en/app_synapse-admin
 
 ## YunoHost specific features
 

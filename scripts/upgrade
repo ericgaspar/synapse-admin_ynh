@@ -160,7 +160,7 @@ ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading Nginx web server..." --weight=1
+ynh_script_progression --message="Reloading NGINX web server..." --weight=1
 
 ynh_systemd_action --service_name=nginx --action=reload
 

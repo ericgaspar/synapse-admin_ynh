@@ -26,7 +26,7 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/install) 
 ## Documentation
 
  * Documentation officielle : 
- * Documentation YunoHost : https://yunohost.org/#/app_synapse-admin_fr
+ * Documentation YunoHost : https://yunohost.org/fr/app_synapse-admin
 
 ## Caractéristiques spécifiques YunoHost
 
