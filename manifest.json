@@ -3,12 +3,12 @@
     "id": "synapse-admin",
     "packaging_format": 1,
     "description": {
-        "en": "",
-        "fr": ""
+        "en": "Synapse admin ui",
+        "fr": "Synapse admin ui"
     },
     "version": "0.8.0~ynh1",
     "url": "https://github.com/Awesome-Technologies/synapse-admin",
-    "license": "Apache-2.0 License",
+    "license": "Apache-2.0",
     "maintainer": {
         "name": ""
     },
