@@ -18,7 +18,6 @@ app=$YNH_APP_INSTANCE_NAME
 
 domain=$(ynh_app_setting_get --app=$app --key=domain)
 path_url=$(ynh_app_setting_get --app=$app --key=path)
-is_public=$(ynh_app_setting_get --app=$app --key=is_public)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 port=$(ynh_app_setting_get --app=$app --key=port)
 
@@ -28,6 +27,18 @@ port=$(ynh_app_setting_get --app=$app --key=port)
 ynh_script_progression --message="Checking version..."
 
 upgrade_type=$(ynh_check_app_version_changed)
+
+#=================================================
+# ENSURE DOWNWARD COMPATIBILITY
+#=================================================
+ynh_script_progression --message="Ensuring downward compatibility..." --time --weight=1
+
+# Cleaning legacy permissions
+if ynh_legacy_permissions_exists; then
+	ynh_legacy_permissions_delete_all
+
+	ynh_app_setting_delete --app=$app --key=is_public
+fi
 
 #=================================================
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
@@ -65,7 +76,6 @@ then
 
 	# Download, check integrity, uncompress and patch the source from app.src
 	ynh_setup_source --dest_dir=$final_path
-
 fi
 
 #=================================================
@@ -117,8 +127,8 @@ fi
 #=================================================
 ynh_script_progression --message="Configuring a systemd service..." --weight=2
 
-ynh_replace_string --match_string="__ENV_PATH__" --replace_string="$PATH"    --target_file="../conf/systemd.service"
-ynh_replace_string --match_string="__YNH_NPM__"  --replace_string="$ynh_npm" --target_file="../conf/systemd.service"
+ynh_replace_string --match_string="__ENV_PATH__" --replace_string="$PATH" --target_file="../conf/systemd.service"
+ynh_replace_string --match_string="__YNH_NPM__" --replace_string="$ynh_npm" --target_file="../conf/systemd.service"
 
 # Create a dedicated systemd config
 ynh_add_systemd_config
@@ -145,7 +155,7 @@ yunohost service add $app --description "UI admin for Synapse" --log="/var/log/$
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" --line_match="HTTP Server listening"
+ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_match="HTTP Server listening"
 
 #=================================================
 # RELOAD NGINX

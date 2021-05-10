@@ -1,17 +1,17 @@
 # Synapse Admin pour YunoHost
 
 [![Niveau d'intégration](https://dash.yunohost.org/integration/synapse-admin.svg)](https://dash.yunohost.org/appci/app/synapse-admin) ![](https://ci-apps.yunohost.org/ci/badges/synapse-admin.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/synapse-admin.maintain.svg)  
-[![Installer Synapse Admin avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=synapse-admin)
+[![Installer Synapse Admin avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=synapse-admin)
 
 *[Read this readme in english.](./README.md)* 
 
 > *Ce package vous permet d'installer Synapse Admin rapidement et simplement sur un serveur YunoHost.  
-Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
+Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/install) pour apprendre comment l'installer.*
 
 ## Vue d'ensemble
 
 
-**Version incluse :** 0.5.0
+**Version incluse :** 0.8.0
 
 ## Captures d'écran
 
@@ -37,8 +37,8 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install
 
 #### Architectures supportées
 
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/synapse-admin%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/synapse-admin/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/synapse-admin%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/synapse-admin/)
+* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/synapse-admin.svg)](https://ci-apps.yunohost.org/ci/apps/synapse-admin/)
+* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/synapse-admin.svg)](https://ci-apps-arm.yunohost.org/ci/apps/synapse-admin/)
 
 ## Liens
 
