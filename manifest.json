@@ -27,12 +27,6 @@
                 "example": "domain.org"
             },
             {
-                "name": "path",
-                "type": "path",
-                "example": "/synapse-admin",
-                "default": "/synapse-admin"
-            },
-            {
                 "name": "is_public",
                 "type": "boolean",
                 "help": {
